@@ -5,6 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/photo-mart.appspot.com/o/pixels.jpg?alt=media&token=eedf2914-be28-407c-80a7-42e0bccc887a');
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 code {

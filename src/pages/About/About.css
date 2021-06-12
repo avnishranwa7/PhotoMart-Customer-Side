@@ -1,0 +1,58 @@
+
+.personal__info{
+    display: inline-block;
+    margin-left: 3vw;
+}
+
+.DP{
+    margin-top: 1vw;
+    margin-left: 2vw;
+    display: inline-block;
+}
+
+.name{
+    margin-left: 2vw;
+}
+
+.categories{
+    margin-left: 2vw;
+    display: inline-block;
+}
+
+.buttons{
+    display: inline-block;
+    padding-left: 1vw;
+    padding-bottom: 1vw;
+}
+
+.separator {
+    margin-top: 1vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.separator::before,
+.separator::after {
+content: '';
+flex: 1;
+border-bottom: 1px solid #000;
+}
+
+.separator:not(:empty)::before {
+margin-right: .25em;
+}
+
+.separator:not(:empty)::after {
+margin-left: .25em;
+}
+
+.photo{
+    margin-left: 2vw;
+    margin-bottom: 2vw;
+}
+
+.edit__form{
+    width: 50vw;
+    margin-left: 25vw;
+}

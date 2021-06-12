@@ -1,0 +1,31 @@
+.send{
+    background-color: rgb(247, 241, 241);
+    position: fixed;
+    z-index: 1;
+    width: 38vw;
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 1vw;
+}
+
+.messages{
+    height: 68vh;
+    overflow-y: scroll;
+}
+
+.messageCard{
+    padding: 10px;
+    width: fit-content;
+    margin: 10px;
+}
+
+.userCard{
+    background-color: royalblue !important;
+    text-align: left !important;
+    
+} 
+
+.couserCard{
+    background-color: seashell !important;
+    margin-left: 22vw !important;
+}
