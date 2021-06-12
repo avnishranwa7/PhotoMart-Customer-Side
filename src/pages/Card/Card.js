@@ -7,8 +7,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import {Button, ButtonGroup, Typography, AppBar, Toolbar, InputBase} from '@material-ui/core';
 import SingleLineGridList from '../Customer/photos';
 import Grid from '@material-ui/core/Grid';
 import dpp from '../../dpp1.jpg';
@@ -17,9 +16,6 @@ import db, {auth} from '../../firebase';
 import './Card.css';
 import csc from 'country-state-city';
 import Photog_login from '../Login/Login';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 
 const useStyles1 = makeStyles({
@@ -31,16 +27,6 @@ const useStyles1 = makeStyles({
     height: 150,
   },
 });
-
-const useStyles2 = makeStyles((theme) => ({
-  formControl: {
-    margin: theme.spacing(1),
-    minWidth: 120,
-  },
-  selectEmpty: {
-    marginTop: theme.spacing(2),
-  },
-}));
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -123,12 +109,11 @@ export default function MediaCard(props) {
   const [val , setVal] = useState('');
   const clas = useStyles1();
   const classes = useStyles();
-  const cla = useStyles2();
   const cl = useStyles3();
   const c = useStyles0();
   const [name, setName] = useState('');
-  const [data, setdata] = useState([]);
   const [docdata, setDocData] = useState([]);
+  const [open, setopen] = useState(false);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(temp => {
@@ -304,7 +289,9 @@ export default function MediaCard(props) {
           <Button variant='outlined' style={{color: 'white', backgroundColor: 'rgba(92, 107, 192, 1)'}} onClick={e => setLoginpage(true)}>Login</Button>
           :
           <p style={{color: 'white', backgroundColor: 'rgba(92, 107, 192, 1)', width: '7vw', overflow: 'hidden', textOverflow: 'ellipsis', paddingTop: '1vh', paddingBottom: '1vh', borderRadius: '4px', paddingLeft: '0.5vw', cursor: 'pointer', textAlign: 'center', paddingRight: '0.5vw'}} onClick={logOut}>{user.data.Name.split(" ", 1)}</p>
+          
           }
+          
           <div className={c.grow} />
         </Toolbar>
       </AppBar>
@@ -361,9 +348,8 @@ export default function MediaCard(props) {
                     </CardContent>
                 </CardActionArea>
                 <CardActions>
-                    
                     <Button size="small" color="primary">
-                    <Link to={{pathname: '/about', state: {data, user, id}}}>About</Link>
+                      <Link to={{pathname: '/about', state: {data, user, id}}}>About</Link>
                     </Button>
                 </CardActions>
                 
@@ -400,22 +386,7 @@ export default function MediaCard(props) {
           <Typography className={classes.title} variant="h6" noWrap>
             Grapher-Mart
           </Typography>
-          {/* <div className={c.search} style={{marginLeft: '55vw'}}>
-            
-            <InputBase
-              classes={{
-                root: c.inputRoot,
-                input: c.inputInput,
-              }}
-              inputProps={{ 'aria-label': 'search' }}
-              onChange={e => setName(e.target.value)}
-              value={name}
-              placeholder='Search photographer'
-            />
-            <Button style={{color: 'white', height: '5vh'}} onClick={search}><div className={c.searchIcon}>
-              <SearchIcon />
-            </div></Button>
-          </div> */}
+          
 
           <Button variant='outlined' style={{color: 'white', backgroundColor: 'rgba(92, 107, 192, 1)', marginLeft: '80vw'}} onClick={e => setLoginpage(false)}>Back</Button>
           <div className={c.grow} />

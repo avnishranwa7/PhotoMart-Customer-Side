@@ -31,8 +31,7 @@ export default function Chat(props) {
     let pid = props.pid;
     let user = props.user;
     useEffect(() => {
-        let arr = [];
-        let messages = [];
+        
         // db.collection("messages").orderBy('timestamp', 'desc').onSnapshot(snapshot => {
         //     setMessages(snapshot.docs.map(doc => (
         //       ({id: doc.id, message: doc.data()})

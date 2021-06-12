@@ -44,22 +44,12 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 export default function About(props) {
-    const [open, setOpen] = React.useState(false);
     const [chat, setchat] = useState(false);
     window.scrollTo(0,0);
     let data = props.location.state.data;
     let user = props.location.state.user;
     let pid = props.location.state.id;
     const classes = useStyles();
-    const style = modalStyles();
-    const handleOpen = () => {
-        setOpen(true);
-    };
-    
-    const handleClose = () => {
-        setOpen(false);
-    };
-    
     if(chat){
         return(
             <div>
@@ -75,9 +65,11 @@ export default function About(props) {
       </AppBar>
       {/* <MediaCard data={data}/> */}
     </div>
-                <Grid container spacing={0.5} style={{marginLeft: '27vw'}}>
-                    <Grid item xs={5}>
-                        <Paper className={classes.paper} style={{minHeight: '75vh'}}><Chat pid={pid} user={user}/></Paper>
+                <Grid container spacing={0.5}>
+                    <Grid item xs={5} style={{marginLeft: '27vw'}}>
+                        <Paper className={classes.paper} style={{minHeight: '75vh'}}>
+                            <Chat pid={pid} user={user}/>
+                        </Paper>
                     </Grid>
                 </Grid>
             </div>
@@ -119,7 +111,11 @@ export default function About(props) {
                                         <p>{data.City}, {data.State}</p>
                                     </div>
                                     <div style={{ display: 'inline', marginLeft: '48vw', verticalAlign: 'top' }} >
-                                        <Button color='primary' variant='contained' onClick={e => setchat(true)}> Chat </Button>
+                                        {
+                                            user && Object.keys(user).length === 0 && user.constructor === Object ? <Button  color='primary' variant='contained' disabled>Chat</Button> : <Button color='primary' variant='contained' onClick={e => setchat(true)}> Chat </Button>
+                                         
+                                        }
+                                        
                                     </div>
 
                                 </div>
