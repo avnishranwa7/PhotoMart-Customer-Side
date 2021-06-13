@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import MediaCard from './pages/Card/Card';
 import About from './pages/About/About';
-import Photog_login from './pages/Login/Login'; 
+import Photog_login from './pages/Login/Login';
 
 function App() {
   return (

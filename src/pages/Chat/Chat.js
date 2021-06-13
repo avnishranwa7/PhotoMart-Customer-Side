@@ -45,12 +45,13 @@ export default function Chat(props) {
             )))
             }
         )
+        
     }, [])
 
     function sendMessage(){
         if(!chat.length){
             db.collection('messages').doc(pid.slice(0,10)+user.id.slice(0,10)).set(
-                {photog: pid, customer: user.id}
+                {photog: pid, customer: user.id, cName: user.data.Name}
             );
         }
         db.collection('messages').doc(pid.slice(0,10)+user.id.slice(0,10)).collection('chat').add(
