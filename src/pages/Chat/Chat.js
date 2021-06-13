@@ -66,7 +66,7 @@ export default function Chat(props) {
             <div className='messages'>
             <FlipMove className="message">
                 {chat.map(({id, message}) => (
-                    <div>
+                    <div align={!message.photog ? "right" : "left"}>
                     <Message message={message} photog={message.photog} key={id} />
                     <AlwaysScrollToBottom />
                     </div>
