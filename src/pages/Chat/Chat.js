@@ -11,7 +11,7 @@ const Message = forwardRef(({message, photog}, ref) => {
         <div className="messageCard" ref={ref}>
             <Card className={photog ? "userCard" : "couserCard"}>
                 <CardContent>
-                    <Typography color="white" variant="outlined" component="h4">
+                    <Typography color="white" variant="outlined">
                         {/* The below line makes the user's own texts appear without a username */}
                     {message.message}
                     </Typography>
@@ -48,10 +48,14 @@ export default function Chat(props) {
     }, [])
 
     function sendMessage(){
-        console.log(pid.slice(0,10)+user.id.slice(0,10));
+        if(!chat.length){
+            db.collection('messages').doc(pid.slice(0,10)+user.id.slice(0,10)).set(
+                {photog: pid, customer: user.id}
+            );
+        }
         db.collection('messages').doc(pid.slice(0,10)+user.id.slice(0,10)).collection('chat').add(
             {message: type, photog: false, timestamp: firebase.firestore.FieldValue.serverTimestamp()}
-        )
+        );
         settype('');
     }
 
@@ -67,7 +71,7 @@ export default function Chat(props) {
             <FlipMove className="message">
                 {chat.map(({id, message}) => (
                     <div align={!message.photog ? "right" : "left"}>
-                    <Message message={message} photog={message.photog} key={id} />
+                        <Message message={message} photog={message.photog} key={id} />
                     <AlwaysScrollToBottom />
                     </div>
                 ))}

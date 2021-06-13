@@ -20,10 +20,14 @@
 }
 
 .userCard{
-    background-color: royalblue !important;
+    background-color: rgb(11, 65, 226) !important;
     text-align: left !important;
+    color: white !important;
+    font-weight: 400;
 } 
 
 .couserCard{
-    background-color: seashell !important;
+    background-color: rgb(117, 29, 236) !important;
+    color: white !important;
+    font-weight: 400;
 }
